@@ -68,23 +68,19 @@ while current_savings <= portion_down_payment:
     months += 1
     #every 6 months, it will increase salary and recalclate using new salary
     if months % 6 == 0:
-        print(months)
+        interest = float(current_savings) * r/12
+        current_savings += (monthly_saving + interest)
+        months +=1
         new_salary = float(annual_salary) + (float(annual_salary) * float(semi_annual_raise))
-        print(new_salary)
         annual_salary = new_salary
         new_monthly_salary = float(annual_salary)/12
         monthly_salary = new_monthly_salary
-        print(monthly_salary)
         new_monlthy_saving = float(monthly_salary) * float(portion_saved)
         monthly_saving = new_monlthy_saving
-        print(monthly_saving)
         interest = float(current_savings) * r/12
         current_savings += (monthly_saving + interest)
-        print(current_savings)
     else:
-        print(months)
         interest = float(current_savings) * r/12
         current_savings += (monthly_saving + interest)
-        print(current_savings)
 
 print("Number of Months", months)
